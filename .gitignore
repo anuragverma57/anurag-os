@@ -1,0 +1,30 @@
+# --- Secrets & credentials (never commit) ---
+secrets/
+*.pem
+**/*-firebase-adminsdk-*.json
+**/firebase-adminsdk*.json
+
+# --- Environment (only .env.example is tracked) ---
+.env*
+!.env.example
+
+# --- Dependencies & build outputs ---
+node_modules/
+web/node_modules/
+web/.next/
+web/out/
+dist/
+build/
+
+# --- Host / IDE ---
+.vercel/
+web/.vercel/
+.DS_Store
+
+# --- Logs & caches ---
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+*.tsbuildinfo
