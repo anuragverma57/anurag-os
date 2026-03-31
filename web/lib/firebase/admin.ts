@@ -7,6 +7,7 @@ import {
   type App,
   type ServiceAccount,
 } from "firebase-admin/app";
+import { getFirestore, type Firestore } from "firebase-admin/firestore";
 
 let app: App | null = null;
 
@@ -50,4 +51,13 @@ export function getAdminApp(): App {
     credential: cert({ projectId, clientEmail, privateKey }),
   });
   return app;
+}
+
+let db: Firestore | null = null;
+
+export function getAdminDb(): Firestore {
+  if (!db) {
+    db = getFirestore(getAdminApp());
+  }
+  return db;
 }

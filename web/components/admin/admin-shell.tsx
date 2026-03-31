@@ -22,12 +22,34 @@ export function AdminShell({
     <div className="flex min-h-[100dvh] flex-col">
       <header className="border-b border-[var(--border)] bg-[var(--surface)]">
         <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-6">
-          <Link
-            href="/admin"
-            className="text-sm font-semibold text-[var(--text)]"
-          >
-            Anurag OS · Admin
-          </Link>
+          <div className="flex items-center gap-6">
+            <Link
+              href="/admin"
+              className="text-sm font-semibold text-[var(--text)]"
+            >
+              Anurag OS · Admin
+            </Link>
+            <nav className="flex gap-4 text-sm" aria-label="Admin">
+              <Link
+                href="/admin/site"
+                className="text-[var(--muted)] transition-colors hover:text-[var(--accent)]"
+              >
+                Site
+              </Link>
+              <Link
+                href="/admin/projects"
+                className="text-[var(--muted)] transition-colors hover:text-[var(--accent)]"
+              >
+                Projects
+              </Link>
+              <Link
+                href="/admin/notes"
+                className="text-[var(--muted)] transition-colors hover:text-[var(--accent)]"
+              >
+                Notes
+              </Link>
+            </nav>
+          </div>
           <div className="flex items-center gap-4 text-sm">
             <span className="hidden text-[var(--muted)] sm:inline">{email}</span>
             <Link

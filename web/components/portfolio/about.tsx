@@ -1,6 +1,6 @@
-import { aboutParagraphs } from "@/lib/site-content";
+import type { AboutSection } from "@/lib/types/site-settings";
 
-export function About() {
+export function About({ about }: { about: AboutSection }) {
   return (
     <section
       id="about"
@@ -12,12 +12,12 @@ export function About() {
             About
           </p>
           <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-[var(--text)] sm:text-4xl">
-            APIs, data, and systems that ship
+            {about.headline}
           </h2>
         </div>
         <div className="grid gap-8 lg:grid-cols-[1fr_280px] lg:gap-12">
           <div className="space-y-5 text-[17px] leading-[1.75] text-[var(--muted)]">
-            {aboutParagraphs.map((p, i) => (
+            {about.paragraphs.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
           </div>
@@ -26,18 +26,12 @@ export function About() {
               Focus areas
             </h3>
             <ul className="mt-4 space-y-3 text-sm text-[var(--muted)]">
-              <li className="flex items-start gap-2">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]" />
-                Go, Node.js & REST / gRPC APIs
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]" />
-                PostgreSQL, MongoDB, Redis, ArangoDB
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]" />
-                Performance, real-time systems & Docker / AWS
-              </li>
+              {about.focusAreas.map((line) => (
+                <li key={line} className="flex items-start gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]" />
+                  {line}
+                </li>
+              ))}
             </ul>
           </aside>
         </div>

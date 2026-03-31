@@ -1,6 +1,12 @@
-import { experience } from "@/lib/site-content";
+import type { ExperienceItem } from "@/lib/types/site-settings";
 
-export function Experience() {
+export function Experience({
+  items,
+  copy,
+}: {
+  items: ExperienceItem[];
+  copy: { title: string; subtitle: string };
+}) {
   return (
     <section
       id="experience"
@@ -12,11 +18,9 @@ export function Experience() {
             Experience
           </p>
           <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-[var(--text)] sm:text-4xl">
-            Where I’ve built & shipped
+            {copy.title}
           </h2>
-          <p className="mt-4 text-[var(--muted)]">
-            Backend-focused roles and internships—impact, stack, and scope at a glance.
-          </p>
+          <p className="mt-4 text-[var(--muted)]">{copy.subtitle}</p>
         </div>
 
         {/* 
@@ -29,7 +33,7 @@ export function Experience() {
             aria-hidden
           />
 
-          {experience.map((item) => (
+          {items.map((item) => (
             <li
               key={`${item.company}-${item.start}`}
               className="flex gap-5 pb-12 last:pb-0 sm:gap-6"

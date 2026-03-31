@@ -1,6 +1,14 @@
 /**
- * Personal site copy — update here as your journey evolves.
+ * Personal site copy — defaults for CMS fallbacks and project seeding.
  */
+
+import type {
+  EducationItem,
+  ExperienceItem,
+} from "@/lib/types/site-settings";
+
+export type { ExperienceItem } from "@/lib/types/site-settings";
+export type { EducationItem } from "@/lib/types/site-settings";
 
 export const site = {
   name: "Anurag Verma",
@@ -13,6 +21,14 @@ export const site = {
   linkedin: "https://www.linkedin.com/in/anurag-verma-57a508231",
   resumeUrl: "/AnuragVerma_Resume.pdf",
 };
+
+export const aboutHeadline = "APIs, data, and systems that ship";
+
+export const aboutFocusAreas = [
+  "Go, Node.js & REST / gRPC APIs",
+  "PostgreSQL, MongoDB, Redis, ArangoDB",
+  "Performance, real-time systems & Docker / AWS",
+];
 
 export const aboutParagraphs = [
   "I’m a Software Developer at RBH Solutions, working on backend and full-stack delivery for enterprise and government platforms—including the HVPNL substation automation initiative—where I collaborate with stakeholders, align with cross-functional teams, and support production. A recent win: optimizing a critical backend task from roughly fifteen minutes down to seconds through better algorithms and query design.",
@@ -29,16 +45,6 @@ export type Project = {
   linkLabel?: string;
   /** Renders as a wide “hero” card on large screens */
   featured?: boolean;
-};
-
-export type ExperienceItem = {
-  role: string;
-  company: string;
-  location: string;
-  start: string;
-  end: string;
-  current?: boolean;
-  highlights: string[];
 };
 
 export const experience: ExperienceItem[] = [
@@ -79,17 +85,24 @@ export const experience: ExperienceItem[] = [
       "Features: attachments, broadcast, blocking, chat deletion, and more.",
     ],
   },
+];
+
+export const education: EducationItem[] = [
   {
-    role: "B.Tech — Computer Science & Engineering",
-    company: "National Institute of Technology, Srinagar",
+    degree: "B.Tech — Computer Science & Engineering",
+    institution: "National Institute of Technology, Srinagar",
     location: "Srinagar, India",
     start: "2021",
     end: "2025",
-    highlights: ["CGPA 7.67 · Coursework: DSA, DBMS, CN, OOPs, OS", "Built this portfolio and Anurag OS alongside coursework."],
+    highlights: [
+      "CGPA 7.67 · Coursework: DSA, DBMS, CN, OOPs, OS",
+      "Built this portfolio and Anurag OS alongside coursework.",
+    ],
   },
 ];
 
-export const projects: Project[] = [
+/** Default projects for Firestore seed + offline fallback when DB is empty or errors. */
+export const fallbackProjects: Project[] = [
   {
     title: "Anurag OS",
     featured: true,

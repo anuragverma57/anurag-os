@@ -1,6 +1,12 @@
-import { site } from "@/lib/site-content";
+import type { SitePublic } from "@/lib/types/site-settings";
 
-export function Contact() {
+export function Contact({
+  site,
+  copy,
+}: {
+  site: SitePublic;
+  copy: { title: string; body: string };
+}) {
   return (
     <section id="contact" className="scroll-mt-20 py-20 sm:py-28">
       <div className="mx-auto max-w-5xl px-6">
@@ -9,12 +15,9 @@ export function Contact() {
             Contact
           </p>
           <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-[var(--text)] sm:text-4xl">
-            Let’s talk
+            {copy.title}
           </h2>
-          <p className="mt-4 max-w-xl text-[var(--muted)]">
-            Open to backend and platform-style roles and to talking shop about APIs,
-            data, and performance. Email is the best way to reach me.
-          </p>
+          <p className="mt-4 max-w-xl text-[var(--muted)]">{copy.body}</p>
           <a
             href={`mailto:${site.email}`}
             className="mt-8 inline-flex h-12 items-center justify-center rounded-xl bg-[var(--accent)] px-8 text-sm font-semibold text-[var(--accent-fg)] transition-opacity hover:opacity-90"

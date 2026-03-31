@@ -72,3 +72,126 @@ body {
   background-size: 72px 72px;
   mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 20%, transparent 75%);
 }
+
+/* Notes — markdown body (react-markdown + remark-gfm) */
+.md-content {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.md-content > *:first-child {
+  margin-top: 0;
+}
+
+.md-content h1,
+.md-content h2,
+.md-content h3,
+.md-content h4 {
+  color: var(--text);
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.md-content h1 {
+  font-size: 2rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.md-content h2 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.md-content h3 {
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.md-content p {
+  margin: 0.85rem 0;
+}
+
+.md-content ul,
+.md-content ol {
+  margin: 0.75rem 0;
+  padding-left: 1.35rem;
+}
+
+.md-content li {
+  margin: 0.35rem 0;
+}
+
+.md-content blockquote {
+  margin: 1rem 0;
+  padding: 0.5rem 0 0.5rem 1rem;
+  border-left: 3px solid color-mix(in oklab, var(--accent) 55%, var(--border));
+  color: var(--text);
+}
+
+.md-content a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.md-content a:hover {
+  opacity: 0.9;
+}
+
+.md-content hr {
+  margin: 2rem 0;
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+.md-content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+  margin: 1rem 0;
+}
+
+.md-content th,
+.md-content td {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.md-content th {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.md-content pre {
+  margin: 1rem 0;
+  padding: 1rem 1.1rem;
+  border-radius: 0.65rem;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.md-content code {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.88em;
+  padding: 0.15em 0.4em;
+  border-radius: 0.3rem;
+  background: color-mix(in oklab, var(--surface-2) 90%, var(--border));
+  color: var(--text);
+}
+
+.md-content pre code {
+  padding: 0;
+  background: transparent;
+  font-size: inherit;
+}

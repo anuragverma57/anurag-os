@@ -1,10 +1,10 @@
-import { projects } from "@/lib/site-content";
+import type { ProjectRecord } from "@/lib/types/project";
 
 function ProjectCard({
   project,
   featured,
 }: {
-  project: (typeof projects)[number];
+  project: ProjectRecord;
   featured?: boolean;
 }) {
   return (
@@ -80,7 +80,15 @@ function ProjectCard({
   );
 }
 
-export function Projects() {
+export function Projects({
+  projects,
+  githubUrl,
+  copy,
+}: {
+  projects: ProjectRecord[];
+  githubUrl: string;
+  copy: { title: string; subtitle: string };
+}) {
   const featuredList = projects.filter((p) => p.featured);
   const rest = projects.filter((p) => !p.featured);
 
@@ -95,12 +103,12 @@ export function Projects() {
             Work
           </p>
           <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-[var(--text)] sm:text-4xl">
-            Selected projects
+            {copy.title}
           </h2>
           <p className="mt-4 text-[var(--muted)]">
-            Highlights from my work and side projects—more experiments and learning repos on{" "}
+            {copy.subtitle}{" "}
             <a
-              href="https://github.com/anuragverma57"
+              href={githubUrl}
               className="font-medium text-[var(--text)] underline-offset-4 hover:text-[var(--accent)] hover:underline"
               target="_blank"
               rel="noopener noreferrer"
@@ -111,18 +119,22 @@ export function Projects() {
           </p>
         </div>
 
-        <div className="flex flex-col gap-6">
-          {featuredList.map((project) => (
-            <ProjectCard key={project.title} project={project} featured />
-          ))}
-          <ul className="grid gap-6 md:grid-cols-2">
-            {rest.map((project) => (
-              <li key={project.title}>
-                <ProjectCard project={project} />
-              </li>
+        {projects.length === 0 ? (
+          <p className="text-[var(--muted)]">No public projects yet.</p>
+        ) : (
+          <div className="flex flex-col gap-6">
+            {featuredList.map((project) => (
+              <ProjectCard key={project.id} project={project} featured />
             ))}
-          </ul>
-        </div>
+            <ul className="grid gap-6 md:grid-cols-2">
+              {rest.map((project) => (
+                <li key={project.id}>
+                  <ProjectCard project={project} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </section>
   );

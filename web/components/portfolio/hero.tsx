@@ -1,6 +1,6 @@
-import { site } from "@/lib/site-content";
+import type { SitePublic } from "@/lib/types/site-settings";
 
-export function Hero() {
+export function Hero({ site }: { site: SitePublic }) {
   return (
     <section className="relative overflow-hidden border-b border-[var(--border)]">
       <div

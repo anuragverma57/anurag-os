@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { site } from "@/lib/site-content";
+import type { SitePublic } from "@/lib/types/site-settings";
 
-export function Footer() {
+export function Footer({ site }: { site: SitePublic }) {
   const year = new Date().getFullYear();
   return (
     <footer className="border-t border-[var(--border)] py-10">
