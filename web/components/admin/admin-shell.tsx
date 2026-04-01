@@ -48,6 +48,12 @@ export function AdminShell({
               >
                 Notes
               </Link>
+              <Link
+                href="/admin/progress"
+                className="text-[var(--muted)] transition-colors hover:text-[var(--accent)]"
+              >
+                Progress
+              </Link>
             </nav>
           </div>
           <div className="flex items-center gap-4 text-sm">

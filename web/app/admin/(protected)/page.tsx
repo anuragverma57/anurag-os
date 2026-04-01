@@ -36,6 +36,12 @@ export default function AdminHomePage() {
           Notes
         </Link>
         <Link
+          href="/admin/progress"
+          className="inline-flex items-center justify-center rounded-lg border border-[var(--border)] px-5 py-2.5 text-sm font-medium text-[var(--text)] hover:border-[var(--accent)]"
+        >
+          Progress
+        </Link>
+        <Link
           href="/"
           className="inline-flex items-center justify-center rounded-lg border border-[var(--border)] px-5 py-2.5 text-sm font-medium text-[var(--text)] hover:border-[var(--accent)]"
         >
